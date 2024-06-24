@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.yoolim.api.rest.demo.DemoApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-06T06:34:44" hostname="choeyulim-ui-MacBookPro.local" time="0.518">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.yoolim.api.rest.demo.DemoApplicationTests" time="0.518"/>
+  <system-out><![CDATA[15:34:43.977 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.yoolim.api.rest.demo.DemoApplicationTests]: DemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:34:44.028 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.yoolim.api.rest.demo.DemoApplication for test class com.yoolim.api.rest.demo.DemoApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-05-06T15:34:44.208+09:00  INFO 99374 --- [demo] [    Test worker] c.y.api.rest.demo.DemoApplicationTests   : Starting DemoApplicationTests using Java 21.0.1 with PID 99374 (started by choiyoolim in /Users/choiyoolim/Desktop/work/demo-rest-api)
+2024-05-06T15:34:44.209+09:00  INFO 99374 --- [demo] [    Test worker] c.y.api.rest.demo.DemoApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2024-05-06T15:34:44.716+09:00  INFO 99374 --- [demo] [    Test worker] c.y.api.rest.demo.DemoApplicationTests   : Started DemoApplicationTests in 0.61 seconds (process running for 1.179)
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/choiyoolim/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.13/979ce25f7d3096a2e82214ba7dc972a05ce7a171/byte-buddy-agent-1.14.13.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
