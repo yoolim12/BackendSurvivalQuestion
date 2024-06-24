@@ -9,10 +9,10 @@ import java.util.UUID;
 //@Service
 public class PostService {
     // PostDTO 목록 관리 --> 기능을 위한 토대
-    private List<PostDto> postDtos = new ArrayList(List.of(
+    private List<PostDto> postDtos = List.of(
             new PostDto("1", "first title", "first content"),
             new PostDto("2", "second title", "second content")
-    ));
+    );
 
     //    https://kim-jong-hyun.tistory.com/31 -> Arrays.asList()와 List.of()의 차이
 
