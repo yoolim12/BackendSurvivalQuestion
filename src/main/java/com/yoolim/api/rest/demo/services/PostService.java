@@ -14,6 +14,11 @@ public class PostService {
             new PostDto("2", "second title", "second content")
     );
 
+//    private List<PostDto> postDtos = new ArrayList(List.of(
+//            new PostDto("1", "first title", "first content"),
+//            new PostDto("2", "second title", "second content")
+//    )); 로 하면 해결됨
+
     //    https://kim-jong-hyun.tistory.com/31 -> Arrays.asList()와 List.of()의 차이
 
     public List<PostDto> getPostList() {
