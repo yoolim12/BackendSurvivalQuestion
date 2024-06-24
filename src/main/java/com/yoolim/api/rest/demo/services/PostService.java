@@ -1,71 +1,58 @@
 package com.yoolim.api.rest.demo.services;
-
-import com.yoolim.api.rest.demo.domain.MultilineText;
-import com.yoolim.api.rest.demo.domain.Post;
 import com.yoolim.api.rest.demo.dtos.PostDto;
-import com.yoolim.api.rest.demo.repositories.PostRepository;
+import com.yoolim.api.rest.demo.exceptions.PostNotFound;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 //@Service
 public class PostService {
     // PostDTO 목록 관리 --> 기능을 위한 토대
-
-    //    private final PostDAO postDAO;
-    private final PostRepository postRepository;
+    private List<PostDto> postDtos = new ArrayList(List.of(
+            new PostDto("1", "first title", "first content"),
+            new PostDto("2", "second title", "second content")
+    ));
 
     //    https://kim-jong-hyun.tistory.com/31 -> Arrays.asList()와 List.of()의 차이
 
-    public PostService() {
-        this.postRepository = new PostRepository();
-//        this.postDAO = new PostListDAO();
-//        this.postDAO = new PostMapDAO();
-    }
-
     public List<PostDto> getPostList() {
-        List<Post> posts = postRepository.findAll();
-        return posts.stream().map(post -> new PostDto(post)).toList();
-//        return postDAO.findAll();
+        return postDtos;
     }
 
     public PostDto getPostId(String id) {
-//        return postDAO.findPost(id);
-        Post post = postRepository.findPost(id);
-        return new PostDto(post);
+        return findPost(id);
+    }
+
+    private PostDto findPost(String id) {
+        return postDtos.stream()
+                .filter(post -> post.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new PostNotFound());
     }
 
     public PostDto create(PostDto postDto) {
-//        String id = UUID.randomUUID().toString().replace("-", "");
-//        postDto.setId(id);
-//
-//        postDAO.save(postDto);
-        Post post = new Post(
-                postDto.getTitle(),
-                MultilineText.of(postDto.getTitle())
-        ); // Post 객체 생성에 대한 책임을 Post 클래스로 전가
+        String id = UUID.randomUUID().toString().replace("-", "");
+        postDto.setId(id);
+        postDtos.add(postDto);
 
-        postRepository.save(post);
-
-        return new PostDto(post);
+        return postDto;
     }
 
     public PostDto update(String id, PostDto postDto) {
-//        PostDto posts = postDAO.findPost(id);
-        Post post = postRepository.update(id, postDto);
+        PostDto found = findPost(id);
 
-        // 이 방법이 별로지만, 일단 한다.
-//        posts.setTitle(postDto.getTitle());
-//        posts.setContent(postDto.getContent());
+        found.setTitle(postDto.getTitle());
+        found.setContent(postDto.getContent());
 
-        return new PostDto(post);
+        return found;
     }
 
     public PostDto deletePost(String id) {
-//        List<PostDto> postList = new ArrayList<PostDto>(postDtos);
-//        PostDto post = postDAO.findPost(id);
-//        postDAO.delete(post);
-        Post post = postRepository.delete(id);
-        return new PostDto(post);
+        PostDto post = findPost(id);
+        postDtos.remove(post);
+
+        return post;
     }
 
 //    private PostDto findPost(String id) { // Extract Method(https://refactoring.com/catalog/extractFunction.html)

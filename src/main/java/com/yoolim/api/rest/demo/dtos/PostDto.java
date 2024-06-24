@@ -1,7 +1,5 @@
 package com.yoolim.api.rest.demo.dtos;
 
-import com.yoolim.api.rest.demo.domain.Post;
-
 public class PostDto {
     private String id;
     private String title;
@@ -14,10 +12,6 @@ public class PostDto {
         this.id = id;
         this.title = title;
         this.content = content;
-    }
-
-    public PostDto(Post post) {
-        this(post.id().toString(), post.title(), post.content().toString());
     }
 
     public String getId() {
